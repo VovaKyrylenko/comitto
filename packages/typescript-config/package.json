@@ -1,0 +1,11 @@
+{
+	"name": "@comitto/typescript-config",
+	"version": "0.0.0",
+	"description": "TypeScript configuration for Comitto",
+	"exports": {
+		".": "./tsc.json"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}

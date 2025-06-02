@@ -1,0 +1,28 @@
+{
+	"name": "@comitto/core",
+	"version": "0.0.0",
+	"description": "Core-library for CLI Comitto",
+	"main": "dist/index.cjs.js",
+	"module": "dist/index.esm.js",
+	"types": "dist/index.d.ts",
+	"files": ["dist"],
+	"exports": {
+		".": {
+			"import": "./dist/index.esm.js",
+			"require": "./dist/index.cjs.js"
+		}
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "tsup ./index.ts",
+		"typecheck": "tsc --noEmit",
+		"dev": "tsup ./index.ts --watch"
+	},
+	"devDependencies": {
+		"@comitto/typescript-config": "workspace:*",
+		"tsup": "^8.5.0"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}
