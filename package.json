@@ -11,7 +11,8 @@
 		"prepare": "husky",
 		"changeset": "changeset",
 		"version": "changeset version",
-		"publish": "changeset publish"
+		"publish": "changeset publish",
+		"ci:publish": "changeset publish"
 	},
 	"keywords": ["git", "cli", "tool", "commit", "branch", "pr"],
 	"author": "Volodymyr Kyrylenko",

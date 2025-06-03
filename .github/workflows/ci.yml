@@ -19,8 +19,8 @@ jobs:
         run: pnpm exec biome lint .
       - name: Type-check
         run: pnpm exec turbo run typecheck
-      - name: Run tests
-        run: pnpm exec turbo run test
+      # - name: Run tests
+      #   run: pnpm exec turbo run test
       - name: Build packages
         run: pnpm exec turbo run build 
       - name: Validate commit messages

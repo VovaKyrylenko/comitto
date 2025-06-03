@@ -5,25 +5,34 @@ on:
     branches:
       - main
 
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
   release:
+    name: Release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: 🗃️ Enable corepack
+        run: corepack enable
+        shell: bash
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+
+      - name: Install Dependencies
+        run: pnpm install --prod --frozen-lockfile
+
+      - name: Create Release Pull Request or Publish to npm registry
+        id: changesets
+        uses: changesets/action@v1
         with:
-          fetch-depth: 0
-      - uses: pnpm/action-setup@v3
-      - run: pnpm install
-      - name: Version bump via Changesets
-        run: pnpm exec changeset version
-      - name: Commit version bump
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
-          git commit -m "chore(release): bump versions via changesets"
-          git push
-      - name: Publish packages
+          publish: pnpm ci:publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: pnpm exec changeset publish
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Push git tag after publish
+        if: steps.changesets.outputs.published == 'true'
+        run: git push --follow-tags
