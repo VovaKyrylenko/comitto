@@ -7,17 +7,23 @@ on:
 jobs:
   create_changeset:
     runs-on: ubuntu-latest
+
     steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 'latest-10'
+
       - name: Checkout PR branch
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           persist-credentials: true
-
-      - name: Setup PNPM & Node.js
-        uses: pnpm/action-setup@v3
-        with:
-          version: 18
 
       - name: Install dependencies
         run: pnpm install
