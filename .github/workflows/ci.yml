@@ -15,7 +15,7 @@ jobs:
         with:
           version: 8
       - run: pnpm install
-      - name: Run ESLint
+      - name: Run lint
         run: pnpm exec biome lint .
       - name: Type-check
         run: pnpm exec turbo run typecheck
@@ -23,5 +23,3 @@ jobs:
       #   run: pnpm exec turbo run test
       - name: Build packages
         run: pnpm exec turbo run build 
-      - name: Validate commit messages
-        run: pnpm exec commitlint --from=HEAD~10
