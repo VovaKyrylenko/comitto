@@ -1,6 +1,6 @@
 {
 	"name": "@comitto/typescript-config",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"description": "TypeScript configuration for Comitto",
 	"exports": {
 		".": "./tsc.json"
