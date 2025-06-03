@@ -1,33 +1,32 @@
 {
-  "name": "comitto",
-  "version": "0.0.0",
-  "description": "Simple CLI tool to fix Git complexity",
-  "scripts": {
-    "dev": "turbo dev",
-    "build": "turbo build",
-    "lint": "biome lint .",
-    "test": "turbo test",
-    "typecheck": "turbo typecheck",
-    "prepare": "husky",
-    "changeset": "changeset",
-    "version": "changeset version",
-    "publish": "changeset publish"
-  },
-  "keywords": ["git", "cli", "tool", "commit", "branch", "pr"],
-  "author": "Volodymyr Kyrylenko",
-  "packageManager": "pnpm@10.11.0",
-  "devDependencies": {
-			"@biomejs/biome": "^1.9.4",
-			"@changesets/cli": "^2.29.4",
-			"@commitlint/cli": "^19.8.1",
-			"@commitlint/config-conventional": "^19.8.1",
-			"husky": "^9.1.7",
-			"lint-staged": "^14.0.0",
-			"turbo": "^2.5.3"
-		},
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,md}": [
-      "biome lint --apply"
-    ]
-  }
+	"name": "comitto",
+	"version": "0.0.0",
+	"description": "Simple CLI tool to fix Git complexity",
+	"scripts": {
+		"dev": "turbo dev",
+		"build": "turbo build",
+		"lint": "biome lint .",
+		"test": "turbo test",
+		"typecheck": "turbo typecheck",
+		"prepare": "husky",
+		"changeset": "changeset",
+		"version": "changeset version",
+		"publish": "changeset publish",
+		"ci:publish": "changeset publish"
+	},
+	"keywords": ["git", "cli", "tool", "commit", "branch", "pr"],
+	"author": "Volodymyr Kyrylenko",
+	"packageManager": "pnpm@10.11.0",
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@changesets/cli": "^2.29.4",
+		"@commitlint/cli": "^19.8.1",
+		"@commitlint/config-conventional": "^19.8.1",
+		"husky": "^9.1.7",
+		"lint-staged": "^14.0.0",
+		"turbo": "^2.5.3"
+	},
+	"lint-staged": {
+		"*.{js,jsx,ts,tsx,json,md}": ["biome lint --apply"]
+	}
 }
