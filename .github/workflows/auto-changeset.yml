@@ -31,6 +31,8 @@ jobs:
       - name: Create changeset from commits
         id: create_changeset
         uses: changesets/action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Comment in PR about new changeset
         if: steps.create_changeset.outputs.newChange != 'false'
