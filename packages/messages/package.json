@@ -1,0 +1,23 @@
+{
+  "name": "@comitto/messages",
+  "version": "0.0.0",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup ./src/index.ts",
+    "dev": "tsup ./src/index.ts --watch",
+    "typecheck": "tsc --noEmit", 
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@comitto/typescript-config": "workspace:*",
+    "@types/node": "^22.15.29",
+    "tsup": "^6.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^3.2.1"
+  }
+}

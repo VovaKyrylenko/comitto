@@ -18,7 +18,6 @@
 		"comitto": "dist/bin.js"
 	},
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "tsup ./index.ts",
 		"typecheck": "tsc --noEmit",
 		"dev": "tsup ./index.ts --watch"

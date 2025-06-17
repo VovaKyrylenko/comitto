@@ -1,0 +1,6 @@
+{
+	"extends": "@comitto/typescript-config",
+	"compilerOptions": {
+		"outDir": "./dist"
+	}
+}
